@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"
+
+</head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        <body div class="appPersonas" id="appPersonas"
+    
+        < class="navbar-navbar-expant-ig navbar-light bg-light">
+        <div class="container-fluid">
+<a class="navbar-brand" href="#">Personas Prueba</a>
+<button class  "navbar-toggler" type="button" data-bs-toggle="collapse"
+data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon">
+
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item">
+</head>
+</head>
+
+<a class="nav-link actived "  aria-current="page" href="#"</a>
+    </li>
+<li class="nav item"
+
+<a class="nav-link" href="#">Link</a>
+
+            </li>
+        <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
+Dropdown
+</a>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+<li><a class="dropdown-item" href="#">Accion</a></li>
+<li><a class="dropdown-item" href="#">otra accion mas </a></li>
+<li>
+
+    <hr class="dropdown-divider">
+    </li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</li>
+</div>
+</div>
+</nav>
+<!--Formulario-->
+<div class="container-fluid">
+        <div class="card">
+                <div class="card-header ">
+                    Registro de Personas
+
+</div>
+                <div class="card-body">
+                    <form method="post" @submit.prevent="Guardar Persona" @reset="Nueva Persona"></form>
+                        <div class="row g-3">
+                            <div class="row g-3">
+                                <div class="col col-mb-3 ">
+                                    <label for="nombres" class="form-label">Nombres De Personas </label>
+                                    <input class="form-control" placeholder="Brian Alexander Mejia Rodriguez" title="Ingrese un Nombre "
+                                        v-model="Personas.Nombre" pattern="[A-Za-zñÑáéíóúü ]{3,75}" required
+                                        type="text">
+                </div>
+<div class="col col-mb 3">
+<label for="apellidos de persona" class="form-label">Apellido De persona</label>
+        <input class="form-control" placeholder="Jose Peres"
+                title="Escribe tu Apeido" v-model="Persona.Apellido 
+                        pattern="[A-Za-zñÑáéíóúü0-9 ]{3,70}" required type="text">
+</div>
+
+</div>
+    <div class="row g-3">
+    <div class="col col-mb-3 ">
+        <label for="codigo" class="form-label">Codigo de Persona</label>
+            <input class="form-control" placeholder="USIS019120" title="Ingrese su código"
+            v-model="Persona.codigo" pattern="[A-Za-zñÑáéíóúü]{4}[0-9]{8}" required
+            type="text">
+
+</div>
+<div class="col col-mb-3 ">
+<label for="Numero de telefono" class="form-label">Numero de  Telefono</label>
+    <input class="form-control" placeholder="7575-7575" title="Ingrese su numero de telefono"
+        v-model="Persona.telefono" pattern="[0-9]{4}-[0-9]{4}|[0-9]{8}" required
+        type="text">
+            </div>
+
+</div>
+    <div class="mb-3">
+    <label for="direccion" class="form-label">Dirección De Persona</label>
+    <input required type="text" class="form-control" title="Ingrese su direccion "
+    v-model="Persona.Direccion">
+
+    </div>
+    <div class="row g-2"
+
+
+    <div class="col col-md-2">
+<input class="btn btn-success w-100" type="submit" value="Guardar Persona">
+</div>
+<div class="col col-md-2">
+<input class="btn btn-primary w-100 " type="reset" value="Borrar o Eliminar">
+</div>
+</div>
+
+<div v-if="persona.mostrar_msg"
+
+class="alert alert-primary alert-dismissible fade show"
+                                role="alert">
+                                {{ Persona.msg}}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--Buscar-->
+            <div class="card">
+                <div class="card-header">
+                    Persona que estan Guardadas 
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+        <th colspan="10">
+        <input @keyup="buscar Personas" v-model="buscar personas" placeholder="Buscar persona"
+            class="form-control w-100" type="text">
+            </th>
+        </tr>
+        <tr>
+
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Código</th>
+            <th>Teléfono</th>
+             <th></th>
+
+<tr></tr>
+
+</thead>
+</tbody>
+
+<tr v-for="personas in personas"  :key="persona.idpersona">
+                                <td>{{persona.nombres}}</td>
+                                <td>{{persona.apellidos}}</td>
+                                <td>{{persona.codigo}}</td>
+                                <td>{{persona.telefono}}</td>
+                                <td>{{persona.direccion}}</td>
+
+                    <button class="btn btn-success"
+                                        @click="modificarpersonae(persona)">Modificar</button>
+                                </td>
+                                <td>
+
+        <button class="btn btn-danger" @click="Eliminar Persona(persona)">Eliminar persona</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    </script>
+
+</body>
+
+
+</html>
+
+
+                                        
+
+        
+    
